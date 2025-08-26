@@ -6,8 +6,8 @@ function gerarAleatorio(min, max) {
 
 function gerarNiveis(qtde) {
     for (let i = 0; i < qtde; i++) {
-        poluicao.push(gerarAleatorio(min, max))
-        // poluicao[i] = gerarAleatorio(min, max)
+        // poluicao.push(gerarAleatorio(min, max))
+        poluicao[i] = gerarAleatorio(min, max)
     }
 
 }
