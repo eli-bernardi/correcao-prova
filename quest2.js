@@ -1,45 +1,42 @@
-let arr = [], arrPar = [], arrImpar = []
+let arr = [], arr17 = [], arr19 = []
 
-function gerarAleatorio(min,max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-function gerarValores(min, max, qtde) {
-    let mediaGeral = 0, soma = 0
-    for (let i = 0; i < qtde; i++) {
-        arr.push(gerarAleatorio(min, max))
+function gerarValores(min, max) {
+
+    for (let i = 0; i < max; i++) {
+        arr.push(min + i)
         // poluicao[i] = gerarAleatorio(min,max)
-        console.log(arr)
     }
+    console.log(arr)
 }
 
-function classificarParImpar(qtde) {
-    let somaPar = 0, somaImpar = 0, mediaPar = 0, mediaImpar = 0
+function classificar_17_19(qtde) {
+    let soma17 = 0, soma19 = 0, media17 = 0, media19 = 0
     for (let i = 0; i < qtde; i++) {
-        if (arr[i] % 2 === 0) {
-            arrPar.push(arr[i])
-            somaPar += arr[i]
-        } else if (arr[i] % 2 === 1) {
-            arrImpar.push(arr[i])
-            somaImpar += arr[i]
+        if (arr[i] % 17 === 0) {
+            arr17.push(arr[i])
+            soma17 += arr[i]
+        } else if (arr[i] % 19 === 0) {
+            arr19.push(arr[i])
+            soma19 += arr[i]
         }
     }
-    console.log(`Números Pares: ${arrPar}`)
-    console.log(`Números Ímpares: ${arrImpar}`)
+    console.log(`Números multiplos de 17: ${arr17}`)
+    console.log(`Números multiplos de 19: ${arr19}`)
+    console.log(`------------------------------------`)
+    media17 = soma17 / arr17.length
+    media19 = soma19 / arr19.length
 
-    mediaPar = somaPar / arrPar.length
-    mediaImpar = somaImpar / arrImpar.length
-
-    console.log(`Soma dos Números Pares: ${somaPar}`)
-    console.log(`Soma dos Números Ímpares: ${somaImpar}`)
-
-    console.log(`Media dos Números Pares: ${mediaPar.toFixed(2)}`)
-    console.log(`Media dos Números Impares: ${mediaImpar.toFixed(2)}`)
+    console.log(`Soma dos Números multiplos de 17: ${soma17}`)
+    console.log(`Soma dos Números multiplos de 19: ${soma19}`)
+    console.log(`------------------------------------`)
+    console.log(`Media dos Números multiplos de 17: ${media17.toFixed(2)}`)
+    console.log(`Media dos Números multiplos de 19: ${media19.toFixed(2)}`)
 }
 function principal() {
-    let min = 1, max = 3, qtde = 4
+    let min = 200, max = 400, qtde = 200
     gerarValores(min, max, qtde)
-    classificarParImpar(qtde)
+    classificar_17_19(qtde)
 }
 
 principal()
